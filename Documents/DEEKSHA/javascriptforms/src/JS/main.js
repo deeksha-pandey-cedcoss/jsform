@@ -1,11 +1,16 @@
-function fitn() 
-{
+function fitn() {
     //CODE FOR AGE AND WEIGHT 
     let y = Number(document.getElementById('age').value);
     let z = Number(document.getElementById('weight').value);
-    if ((y < 1 || y > 100) && (z <= 1000) || (y == "" || z == "")) {
-        document.getElementById('form-errors').innerHTML = "Age is not proper as well as weight is improper";
+    if (y < 0 || z < 0) {
+        document.getElementById('form-errors').innerHTML = "NOT IN PROPER FORMAT";
+        return;
     }
+    else if (( y > 100) || (z >= 1000) || (y == "" || z == "")) {
+        document.getElementById('form-errors').innerHTML = "not proper";
+        return;
+    }
+
     if (y >= 5 && y <= 7) {
         if (z >= 15 && z <= 20) {
             document.getElementById('form-errors').innerHTML = "FIT";
@@ -43,9 +48,10 @@ function fitn()
             document.getElementById('form-errors').innerHTML = "OVERWEIGHT";
     }
     else
-    document.getElementById('form-errors').innerHTML = "NOT IN RANGE";
+        document.getElementById('form-errors').innerHTML = "NOT IN RANGE";
 
 }
+
 
 
 
